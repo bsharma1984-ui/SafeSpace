@@ -1,0 +1,712 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SafeSpace | Your Digital Safety Buddy</title>
+
+<style>
+:root {
+  --purple: #6654e8;
+  --dark: #27244d;
+  --green: #16845b;
+  --red: #ba263c;
+  --orange: #aa6500;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--dark);
+  background: linear-gradient(135deg, #edeaff, #e5faff);
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 35px 15px;
+  background: var(--purple);
+  color: white;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 38px;
+}
+
+header p {
+  margin-bottom: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 25px auto;
+  padding: 0 15px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 20px #25244b15;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+textarea {
+  width: 100%;
+  height: 145px;
+  border: 2px solid #d4d2ee;
+  border-radius: 12px;
+  padding: 15px;
+  font: 16px Arial, sans-serif;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: 2px solid var(--purple);
+}
+
+button {
+  background: var(--purple);
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  padding: 13px 20px;
+  margin-top: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(0.92);
+}
+
+.secondary {
+  background: #616580;
+}
+
+.result {
+  display: none;
+  margin-top: 20px;
+  border-radius: 12px;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.safe {
+  background: #e5f8ec;
+  border-left: 6px solid var(--green);
+}
+
+.low {
+  background: #fff5da;
+  border-left: 6px solid #d9a32b;
+}
+
+.moderate {
+  background: #ffedd5;
+  border-left: 6px solid var(--orange);
+}
+
+.high, .critical {
+  background: #ffe5e9;
+  border-left: 6px solid var(--red);
+}
+
+.tag {
+  display: inline-block;
+  padding: 8px 12px;
+  background: #eeebff;
+  border-radius: 20px;
+  font-size: 13px;
+  margin: 5px 4px 5px 0;
+}
+
+.tip {
+  padding: 13px;
+  background: #f3f0ff;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+footer {
+  text-align: center;
+  color: #666;
+  font-size: 13px;
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 30px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🛡️ SafeSpace</h1>
+  <p>Your Digital Safety Buddy</p>
+  <p>Think Safe • Stay Strong • Speak Up</p>
+</header>
+
+<main class="container">
+
+<section class="card">
+  <h2>💬 Check a Message</h2>
+
+  <p>
+    Did someone send you a mean, threatening,
+    inappropriate, or uncomfortable message?
+    Check it below.
+  </p>
+
+  <label for="message">
+    <b>Enter a message:</b>
+  </label>
+
+  <textarea
+    id="message"
+    placeholder="Type or paste a message here...">
+  </textarea>
+
+  <button onclick="checkMessage()">
+    🔍 Analyze Message
+  </button>
+
+  <button class="secondary" onclick="clearMessage()">
+    Clear
+  </button>
+
+  <div
+    id="result"
+    class="result"
+    role="status"
+    aria-live="polite">
+  </div>
+
+</section>
+
+<section class="card">
+  <h2>🧠 What Can SafeSpace Detect?</h2>
+
+  <span class="tag">😡 Abusive words</span>
+  <span class="tag">💔 Cyberbullying</span>
+  <span class="tag">⚠️ Death threats</span>
+  <span class="tag">🚨 Violence</span>
+  <span class="tag">🕵️ Grooming warning signs</span>
+  <span class="tag">🔒 Suspicious secrecy</span>
+  <span class="tag">🛑 Intimate-image requests</span>
+  <span class="tag">🚫 Exploitation risks</span>
+  <span class="tag">🔞 Adult-content references</span>
+  <span class="tag">🌍 Hindi / Hinglish</span>
+
+</section>
+
+<section class="card">
+
+  <h2>💜 Your Safety Matters</h2>
+
+  <div class="tip">
+    ✅ You do not have to reply to hurtful messages.
+  </div>
+
+  <div class="tip">
+    ✅ Tell a parent, teacher, or another trusted adult.
+  </div>
+
+  <div class="tip">
+    ✅ Block or report accounts that threaten or harass you.
+  </div>
+
+  <div class="tip">
+    ✅ Never share intimate pictures with anyone
+    who pressures you.
+  </div>
+
+  <div class="tip">
+    ✅ Keep threatening text messages as evidence
+    when it is safe, but do not download or forward
+    intimate images of children.
+  </div>
+
+  <div class="tip">
+    🚨 In India, call 112 in an emergency.
+    Children can seek support through Child Helpline 1098.
+  </div>
+
+</section>
+
+<section class="card">
+
+  <h2>🔐 Privacy First</h2>
+
+  <p>
+    SafeSpace checks messages directly in your browser.
+    It does not send messages to a server.
+  </p>
+
+  <p>
+    This is a rule-based educational prototype.
+    It is not a trained AI model and cannot guarantee
+    that a message is safe.
+  </p>
+
+</section>
+
+</main>
+
+<footer>
+  SafeSpace © 2026 | Making the Internet Kinder 💜
+</footer>
+
+<script>
+
+// ======================================
+// SAFESPACE MESSAGE DETECTION RULES
+// ======================================
+
+const rules = [
+
+  // 1. DEATH THREATS
+
+  {
+    category: "Death threats and violent threats",
+    level: 5,
+
+    patterns: [
+      /\bi (will|'ll) kill you\b/i,
+      /\bi('m| am) going to kill you\b/i,
+      /\bi (will|'ll) murder you\b/i,
+      /\byou('re| are) dead\b/i,
+      /\bi hope you die\b/i,
+      /\bi wish you were dead\b/i,
+      /\bwatch your back\b/i,
+      /\bi('ll| will) beat you up\b/i,
+      /\bi('ll| will) hurt your family\b/i,
+      /\byou won't survive\b/i,
+      /\btujhe maar dunga\b/i,
+      /\bjaan se maar dunga\b/i,
+      /\btujhe khatam kar dunga\b/i
+    ],
+
+    advice:
+      "This message may contain a serious threat. " +
+      "Do not confront the sender. Tell a trusted " +
+      "adult immediately. If you are in immediate " +
+      "danger, contact emergency services."
+  },
+
+  // 2. SELF-HARM ENCOURAGEMENT
+
+  {
+    category: "Self-harm encouragement",
+    level: 5,
+
+    patterns: [
+      /\bkill yourself\b/i,
+      /\bkys\b/i,
+      /\bgo (and )?die\b/i,
+      /\bgo end your life\b/i
+    ],
+
+    advice:
+      "This message encourages harm. Do not engage " +
+      "with the sender. Tell a trusted adult promptly."
+  },
+
+  // 3. SELF-HARM DISTRESS
+
+  {
+    category: "Possible self-harm distress",
+    level: 5,
+
+    patterns: [
+      /\bi want to die\b/i,
+      /\bi want to end my life\b/i,
+      /\bi('m| am) going to hurt myself\b/i
+    ],
+
+    advice:
+      "Someone may be expressing serious distress. " +
+      "Respond with kindness, not punishment. " +
+      "Seek help from a trusted adult immediately " +
+      "if there is a safety concern."
+  },
+
+  // 4. SEXUAL WORDS AND CENSORED SPELLINGS
+
+  {
+    category: "Sexual-content references",
+    level: 3,
+
+    patterns: [
+      /\bsex\b/i,
+      /\bsexual\b/i,
+      /(?:^|[^\w])se\*(?=$|[^\w])/i,
+      /\bporn\b/i,
+      /\bporno\b/i,
+      /\bpornography\b/i,
+      /\bpo\*n\b/i,
+      /\bp0rn\b/i,
+      /\bxxx\b/i,
+      /\bnsfw\b/i,
+      /\bnudes?\b/i,
+      /\bnaked\b/i,
+      /\bundress\b/i
+    ],
+
+    advice:
+      "This message includes a sexual-content " +
+      "reference. Context matters: discussing " +
+      "health or education is not automatically unsafe. " +
+      "If someone is pressuring you for private images " +
+      "or sexual activity, speak to a trusted adult."
+  },
+
+  // 5. GROOMING AND INTIMATE-IMAGE REQUESTS
+
+  {
+    category: "Intimate-image requests or coercion",
+    level: 5,
+
+    patterns: [
+      /\bsend (me )?(a )?nudes?\b/i,
+      /\btake (your|ur) clothes off\b/i,
+      /\bremove your clothes\b/i,
+      /\bshow me your body\b/i,
+      /\bturn on (your|ur) camera and undress\b/i,
+      /\bsend (me )?(your|a) private (photo|picture)\b/i,
+      /\bkapde utaaro\b/i,
+      /\bprivate photo bhejo\b/i,
+      /\bphoto viral kar dunga\b/i,
+      /\bi('ll| will) share your (photo|picture)\b/i
+    ],
+
+    advice:
+      "This message may contain an unsafe intimate-image " +
+      "request or coercion. Do not send pictures or " +
+      "comply with pressure. Inform a trusted adult. " +
+      "Do not download or forward intimate images of minors."
+  },
+
+  // 6. GROOMING WARNING SIGNS
+
+  {
+    category: "Possible grooming or suspicious secrecy",
+    level: 4,
+
+    patterns: [
+      /\bdon't tell (your )?parents\b/i,
+      /\bdon't tell anyone\b/i,
+      /\bkeep (this|it) (a )?secret\b/i,
+      /\bmeet me alone\b/i,
+      /\bcome (meet me|with me) without telling\b/i,
+      /\bare you alone right now\b/i,
+      /\bif you trust me.{0,30}(secret|picture|photo)\b/i,
+      /\bkisi ko mat batana\b/i,
+      /\bmummy papa ko mat batana\b/i,
+      /\bakele milne aao\b/i
+    ],
+
+    advice:
+      "This message may indicate secrecy or grooming, " +
+      "especially if someone is also asking for pictures " +
+      "or a private meeting. Do not meet strangers alone. " +
+      "Talk to a trusted adult."
+  },
+
+  // 7. TRAFFICKING AND EXPLOITATION
+
+  {
+    category: "Possible exploitation or trafficking",
+    level: 4,
+
+    patterns: [
+      /\bjob.{0,40}keep it secret\b/i,
+      /\bearn money.{0,40}meet me alone\b/i,
+      /\bdon't bring anyone\b/i,
+      /\byou cannot leave until you repay\b/i,
+      /\bdo whatever the customer asks\b/i,
+      /\barrange your transport.{0,40}parents\b/i
+    ],
+
+    advice:
+      "This message may indicate unsafe recruitment " +
+      "or exploitation. Do not meet or travel secretly. " +
+      "Seek help from a trusted adult or child " +
+      "protection service."
+  },
+
+  // 8. PSYCHOPATH AND RELATED INSULTS
+
+  {
+    category: "Insulting or stigmatizing language",
+    level: 3,
+
+    patterns: [
+      /\bpsychopath\b/i,
+      /\bphycopath\b/i,
+      /\bpsych0path\b/i,
+      /\bpsycho\b/i,
+      /\bpsychotic\b/i,
+      /\bsociopath\b/i,
+      /\bmental case\b/i,
+      /\bmentally sick\b/i,
+      /\bcrazy freak\b/i,
+      /\bweirdo\b/i,
+      /\bcreep\b/i
+    ],
+
+    advice:
+      "This may be insulting or stigmatizing language. " +
+      "These words are not evidence that someone has " +
+      "a mental health condition. If someone is " +
+      "targeting you repeatedly, report it and " +
+      "talk to a trusted adult."
+  },
+
+  // 9. BULLYING AND HUMILIATION
+
+  {
+    category: "Cyberbullying or humiliation",
+    level: 3,
+
+    patterns: [
+      /\bnobody likes you\b/i,
+      /\beveryone hates you\b/i,
+      /\byou('re| are) worthless\b/i,
+      /\byou('re| are) ugly\b/i,
+      /\byou have no friends\b/i,
+      /\bnobody cares about you\b/i,
+      /\bgo away loser\b/i,
+      /\byou('re| are) disgusting\b/i,
+      /\btu kisi kaam ka nahi\b/i,
+      /\btujhe koi pasand nahi karta\b/i
+    ],
+
+    advice:
+      "This message may contain bullying or humiliation. " +
+      "You deserve respect. Avoid retaliating, consider " +
+      "blocking or reporting the sender, and speak to " +
+      "a trusted adult."
+  },
+
+  // 10. ABUSIVE WORDS AND SWEARING
+
+  {
+    category: "Abusive or rude language",
+    level: 2,
+
+    patterns: [
+      /\bidiot\b/i,
+      /\bstupid\b/i,
+      /\bdumb\b/i,
+      /\bloser\b/i,
+      /\bjerk\b/i,
+      /\bmoron\b/i,
+      /\bbrat\b/i,
+      /\bfreak\b/i,
+      /\basshole\b/i,
+      /\bbastard\b/i,
+      /\bbitch\b/i,
+      /\bdumbass\b/i,
+      /\bjackass\b/i,
+      /\bfuck(?:ing|er)?\b/i,
+      /\bfck\b/i,
+      /\bfuk\b/i,
+      /\bshit(?:head)?\b/i,
+      /\bbullshit\b/i,
+      /\bstfu\b/i,
+      /\bgtfo\b/i,
+      /\bshut up\b/i,
+      /\bget lost\b/i,
+      /\bnobody cares\b/i,
+      /\bbewakoof\b/i,
+      /\bpagal\b/i,
+      /\bnalayak\b/i,
+      /\bnikamma\b/i,
+      /\bharami\b/i,
+      /\bkamine\b/i,
+      /\bchup kar\b/i
+    ],
+
+    advice:
+      "This message may contain offensive or rude " +
+      "language. The meaning depends on context. " +
+      "Avoid responding with insults and seek help " +
+      "if harassment continues."
+  }
+
+];
+
+// ======================================
+// NORMALIZE MESSAGE
+// ======================================
+
+function normalizeMessage(text) {
+  return text
+    .normalize("NFKC")
+    .replace(/[\u200B-\u200D\uFEFF]/g, "")
+    .replace(/[’‘]/g, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+// ======================================
+// RISK LEVELS
+// ======================================
+
+function getRisk(level) {
+  if (level === 5) return ["CRITICAL", "critical"];
+  if (level === 4) return ["HIGH", "high"];
+  if (level === 3) return ["MODERATE", "moderate"];
+  if (level === 2) return ["LOW", "low"];
+  return ["NO MATCH", "safe"];
+}
+
+// ======================================
+// SAFE TEXT DISPLAY
+// ======================================
+
+function addText(parent, tag, text) {
+  const element = document.createElement(tag);
+  element.textContent = text;
+  parent.appendChild(element);
+  return element;
+}
+
+// ======================================
+// ANALYZE MESSAGE
+// ======================================
+
+function checkMessage() {
+
+  const input = document.getElementById("message");
+  const result = document.getElementById("result");
+
+  const message = normalizeMessage(input.value);
+
+  result.replaceChildren();
+  result.style.display = "block";
+
+  if (!message) {
+    result.className = "result low";
+    addText(result, "h3", "Please enter a message.");
+    return;
+  }
+
+  const matches = rules.filter(rule =>
+    rule.patterns.some(pattern => pattern.test(message))
+  );
+
+  if (matches.length === 0) {
+
+    result.className = "result safe";
+
+    addText(
+      result,
+      "h3",
+      "✅ No matching warning rule"
+    );
+
+    addText(
+      result,
+      "p",
+      "No known rule was triggered. This does NOT " +
+      "guarantee the message is safe. If a message " +
+      "makes you uncomfortable, talk to a trusted adult."
+    );
+
+    return;
+  }
+
+  matches.sort((a, b) => b.level - a.level);
+
+  const highest = matches[0];
+
+  const [label, cssClass] = getRisk(highest.level);
+
+  result.className = "result " + cssClass;
+
+  addText(
+    result,
+    "h3",
+    "⚠️ Risk Level: " + label
+  );
+
+  addText(
+    result,
+    "p",
+    "Detected warning categories:"
+  );
+
+  const list = document.createElement("ul");
+
+  matches.forEach(match => {
+    addText(list, "li", match.category);
+  });
+
+  result.appendChild(list);
+
+  addText(
+    result,
+    "h3",
+    "💜 What should you do?"
+  );
+
+  addText(
+    result,
+    "p",
+    highest.advice
+  );
+
+  addText(
+    result,
+    "p",
+    "SafeSpace uses rule-based detection. " +
+    "A warning is not proof of someone's intentions, " +
+    "and a message without a warning may still be unsafe."
+  );
+}
+
+// ======================================
+// CLEAR MESSAGE
+// ======================================
+
+function clearMessage() {
+
+  document.getElementById("message").value = "";
+
+  const result = document.getElementById("result");
+
+  result.replaceChildren();
+  result.style.display = "none";
+
+  document.getElementById("message").focus();
+}
+
+</script>
+
+</body>
+</html>
